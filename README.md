@@ -1,6 +1,3 @@
-**Here is your updated README.md file** with only the necessary changes applied while keeping all the original content intact:
-
-```markdown
 # Autism Detection Platform
 
 An AI-powered web application for early detection of autism in children through facial expression analysis. The platform combines machine learning with a user-friendly interface to help parents and healthcare professionals identify potential autism spectrum characteristics. It now features a **weighted ensemble approach** combining facial image analysis with behavioral pattern recognition for more accurate and balanced results.
@@ -49,36 +46,6 @@ An AI-powered web application for early detection of autism in children through 
 - Encrypted user information
 - HIPAA-compliant data storage
 - Assessment history tracking
-
-## Project Structure
-
-```
-Autism_detection/
-├── backend/
-│   ├── app.py                    # Flask application with routes
-│   ├── ensemble_inference.py     # Ensemble logic and tabular model
-│   ├── config.py
-│   ├── pyproject.toml            # uv dependencies (primary)
-│   ├── uv.lock                   # Lock file for reproducible installs
-│   ├── .env.example
-│   ├── requirements.txt          # Legacy fallback
-│   └── uploads/                  # Image storage directory
-├── frontend/
-│   ├── public/
-│   │   └── index.html            # HTML entry point
-│   ├── src/
-│   │   ├── pages/                # React pages (AnalysisPage.js updated)
-│   │   ├── components/           # Reusable components
-│   │   ├── context/              # Authentication context
-│   │   ├── App.js                # Main app component
-│   │   └── index.js              # React entry point
-│   └── package.json              # NPM dependencies
-├── ml_model/
-│   ├── autism_detector.py        # ML model implementation
-│   └── __init__.py               # Package initialization
-├── datasets/                     # Training datasets directory
-└── README.md
-```
 
 ## Technology Stack
 
@@ -416,4 +383,3 @@ For support, questions, or feedback:
 **Last Updated**: April 16, 2026
 
 **Version**: 1.1.0
-```

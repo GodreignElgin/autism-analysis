@@ -1,0 +1,175 @@
+<<<<<<< HEAD
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+dataset/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.npmrc
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# ML Models
+*.joblib
+
+# Datasets
+datasets/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build
+build/
+dist/
+
+# React
+/frontend/build
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+=======
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.npmrc
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# ML Models
+*.joblib
+
+# Datasets
+datasets/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build
+build/
+dist/
+
+# React
+/frontend/build
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test outputs (keep test files, ignore outputs)
+tests/__pycache__/
+tests/*.pyc
+*.test.log
+
+# Script outputs
+scripts/__pycache__/
+scripts/*.pyc
+>>>>>>> f523eb594e875e1dba62ab15eed42d1c2553fed2

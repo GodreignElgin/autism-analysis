@@ -1,0 +1,36 @@
+[project]
+name = "autism-detection-backend"
+version = "0.1.0"
+description = "Backend API for autism detection platform"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "flask",
+    "flask-cors",
+    "flask-jwt-extended",
+    "flask-sqlalchemy",
+    "google-generativeai",
+    "gunicorn",
+    "numpy",
+    "opencv-python",
+    "pillow",
+    "python-dotenv",
+    "requests",
+    "scikit-learn==1.6.1",
+    "tensorflow",
+]
+
+[project.optional-dependencies]
+enhanced = [
+    "dlib==19.24.2",
+    "opencv-contrib-python==4.8.0.76",
+]
+tabular = [
+    "catboost",
+    "joblib",
+    "lightgbm",
+    "pandas",
+    "xgboost",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,174 @@
+/* Footer animations and hover effects */
+
+/* Pulse animation for logo heart */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Link hover effects */
+footer a[style*="link"]:hover {
+  color: #667eea !important;
+  transform: translateX(5px);
+}
+
+footer a[style*="link"]::before {
+  content: "→";
+  opacity: 0;
+  margin-right: -15px;
+  transition: all 0.3s ease;
+}
+
+footer a[style*="link"]:hover::before {
+  opacity: 1;
+  margin-right: 5px;
+}
+
+/* Social icon hover effects */
+footer a[style*="socialIcon"]:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Social icon specific colors */
+footer a[title="Facebook"]:hover {
+  background: #1877f2 !important;
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4);
+}
+
+footer a[title="Twitter"]:hover {
+  background: #1da1f2 !important;
+  box-shadow: 0 8px 20px rgba(29, 161, 242, 0.4);
+}
+
+footer a[title="LinkedIn"]:hover {
+  background: #0a66c2 !important;
+  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+}
+
+footer a[title="Instagram"]:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  ) !important;
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+}
+
+footer a[title="GitHub"]:hover {
+  background: #333 !important;
+  box-shadow: 0 8px 20px rgba(51, 51, 51, 0.4);
+}
+
+/* Bottom link hover */
+footer a[style*="bottomLink"]:hover {
+  color: #667eea !important;
+}
+
+/* Section title underline animation */
+footer h3[style*="sectionTitle"]::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+footer div[style*="footerSection"]:hover h3[style*="sectionTitle"]::after {
+  width: 60px;
+}
+
+/* Wave animation */
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+footer svg[style*="waveSvg"] {
+  animation: waveAnimation 10s ease-in-out infinite;
+}
+
+/* Disclaimer hover effect */
+footer div[style*="disclaimer"]:hover {
+  background-color: rgba(255, 107, 157, 0.15);
+  border-color: rgba(255, 107, 157, 0.5);
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+/* Contact item hover */
+footer div[style*="contactItem"]:hover {
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+footer div[style*="contactItem"]:hover svg {
+  color: #ff6b9d !important;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  footer div[style*="bottomContent"] {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer div[style*="footerContent"] {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Smooth fade-in on load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Section stagger animation */
+footer div[style*="footerSection"]:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+footer div[style*="footerSection"]:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+footer div[style*="footerSection"]:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+footer div[style*="footerSection"]:nth-child(4) {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}

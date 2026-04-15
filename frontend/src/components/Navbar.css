@@ -1,0 +1,171 @@
+/* Navbar Enhanced Styles */
+
+/* Navbar container */
+nav {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FORCE REMOVE ALL OUTLINES */
+nav *,
+nav *:before,
+nav *:after,
+nav a,
+nav a *,
+nav a:hover,
+nav a:focus,
+nav a:active,
+nav a:visited,
+nav svg,
+nav span {
+  outline: 0 !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+  -moz-outline-radius: 0 !important;
+}
+
+/* Logo hover effect - smooth and seamless - remove all outlines */
+nav a[href="/"],
+nav a[href="/"] *,
+nav a[href="/"] span,
+nav a[href="/"] svg {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+nav a[href="/"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+nav a[href="/"]:focus,
+nav a[href="/"]:active,
+nav a[href="/"]:visited,
+nav a[href="/"]:link {
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  -moz-outline: none !important;
+}
+
+nav a[href="/"]:focus-visible,
+nav a[href="/"]:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove focus ring from all child elements */
+nav a[href="/"] *:focus,
+nav a[href="/"] *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Logo SVG animation - smooth without rotation */
+nav a[href="/"] svg {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a[href="/"]:hover svg {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+}
+
+/* Logo text smooth animation */
+nav a[href="/"] span {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a[href="/"]:hover span {
+  letter-spacing: 0.5px;
+}
+
+/* Nav links hover effects */
+nav a,
+nav button {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout button hover */
+nav button[style*="linear-gradient"]:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(234, 67, 53, 0.6);
+}
+
+/* Navbar animation */
+@keyframes navbarSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav[style*='position: "sticky"'] {
+  animation: navbarSlideDown 0.5s ease-out;
+}
+
+/* Active link indicator */
+a[style*='fontSize: "1rem"']:active {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(0) scale(0.98);
+}
+
+/* User name badge effect */
+span[style*='fontWeight: "600"'] {
+  transition: all 0.3s ease;
+}
+
+span[style*='fontWeight: "600"']:hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  transform: scale(1.05);
+}
+
+/* Mobile menu animation */
+@keyframes mobileMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+div[style*='top: "70px"'] {
+  animation: mobileMenuSlide 0.3s ease-out;
+}
+
+/* Smooth transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

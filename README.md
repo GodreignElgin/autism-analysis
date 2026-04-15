@@ -1,6 +1,9 @@
+**Here is your updated README.md file** with only the necessary changes applied while keeping all the original content intact:
+
+```markdown
 # Autism Detection Platform
 
-An AI-powered web application for early detection of autism in children through facial expression analysis. The platform combines machine learning with a user-friendly interface to help parents and healthcare professionals identify potential autism spectrum characteristics.
+An AI-powered web application for early detection of autism in children through facial expression analysis. The platform combines machine learning with a user-friendly interface to help parents and healthcare professionals identify potential autism spectrum characteristics. It now features a **weighted ensemble approach** combining facial image analysis with behavioral pattern recognition for more accurate and balanced results.
 
 ## Features
 
@@ -13,6 +16,9 @@ An AI-powered web application for early detection of autism in children through 
   - Facial symmetry
   - Expression intensity
   - Face positioning
+- **New**: Weighted Ensemble system that combines Image Model + Tabular (Behavioral) Model
+- Configurable weights via `.env` (Default: 70% Image + 30% Behavioral)
+- Graceful fallback and "Insufficient Information" status when behavioral data is missing
 
 ### 2. **User-Friendly Interface**
 
@@ -49,23 +55,28 @@ An AI-powered web application for early detection of autism in children through 
 ```
 Autism_detection/
 ├── backend/
-│   ├── app.py                 # Flask application with routes
-│   ├── requirements.txt        # Python dependencies
-│   └── uploads/               # Image storage directory
+│   ├── app.py                    # Flask application with routes
+│   ├── ensemble_inference.py     # Ensemble logic and tabular model
+│   ├── config.py
+│   ├── pyproject.toml            # uv dependencies (primary)
+│   ├── uv.lock                   # Lock file for reproducible installs
+│   ├── .env.example
+│   ├── requirements.txt          # Legacy fallback
+│   └── uploads/                  # Image storage directory
 ├── frontend/
 │   ├── public/
-│   │   └── index.html         # HTML entry point
+│   │   └── index.html            # HTML entry point
 │   ├── src/
-│   │   ├── pages/             # React pages
-│   │   ├── components/        # Reusable components
-│   │   ├── context/           # Authentication context
-│   │   ├── App.js             # Main app component
-│   │   └── index.js           # React entry point
-│   └── package.json           # NPM dependencies
+│   │   ├── pages/                # React pages (AnalysisPage.js updated)
+│   │   ├── components/           # Reusable components
+│   │   ├── context/              # Authentication context
+│   │   ├── App.js                # Main app component
+│   │   └── index.js              # React entry point
+│   └── package.json              # NPM dependencies
 ├── ml_model/
-│   ├── autism_detector.py     # ML model implementation
-│   └── __init__.py            # Package initialization
-├── datasets/                  # Training datasets directory
+│   ├── autism_detector.py        # ML model implementation
+│   └── __init__.py               # Package initialization
+├── datasets/                     # Training datasets directory
 └── README.md
 ```
 
@@ -74,10 +85,12 @@ Autism_detection/
 ### Backend
 
 - **Framework**: Flask
+- **Package Manager**: uv (modern Python package manager)
+- **Python Version**: 3.11.x
 - **Authentication**: Flask-JWT-Extended
 - **Database**: SQLAlchemy with SQLite
-- **ML**: TensorFlow/Keras
-- **Image Processing**: OpenCV, Pillow
+- **ML**: TensorFlow/Keras, scikit-learn, CatBoost/LightGBM/XGBoost family (via tabular extra)
+- **Image Processing**: OpenCV, Pillow, dlib (optional)
 - **CORS**: Flask-CORS
 
 ### Frontend
@@ -95,6 +108,7 @@ Autism_detection/
 - **CNN Architecture**: VGG-inspired model
 - **Image Processing**: OpenCV
 - **Data Processing**: NumPy, Pandas
+- **Ensemble**: Weighted averaging of image and tabular models
 
 ## Installation & Setup
 
@@ -102,7 +116,7 @@ Autism_detection/
 
 - Python 3.11.x
 - Node.js 14+
-- npm or yarn
+- uv (Python package manager)
 
 ### Backend Setup
 
@@ -112,22 +126,23 @@ Autism_detection/
 cd backend
 ```
 
-2. **Install `uv` (if not already installed):**
-
-```bash
-pip install uv
-```
-
-3. **Create/sync environment with Python 3.11 and dependencies:**
+2. **Install Python 3.11 and sync dependencies:**
 
 ```bash
 uv python install 3.11
-uv sync
-# If you want weighted ensemble with tabular .pkl model support:
-# uv sync --extra tabular
+uv sync --extra tabular        # Use --extra tabular for ensemble support
 ```
 
-4. **Run Flask server:**
+3. **Create environment file:**
+
+```bash
+copy .env.example .env     # On Windows
+# cp .env.example .env     # On macOS/Linux
+```
+
+4. **Place your model file** at `backend/model/best_model.pkl`
+
+5. **Run Flask server:**
 
 ```bash
 uv run python app.py
@@ -152,10 +167,10 @@ npm install
 3. **Start development server:**
 
 ```bash
-npm start
+npm run dev
 ```
 
-The frontend will open at `http://localhost:3000`
+The frontend will open at `http://localhost:5173` (or the port shown in terminal).
 
 ## API Endpoints
 
@@ -168,7 +183,7 @@ The frontend will open at `http://localhost:3000`
 ### Analysis
 
 - `POST /api/analyze` - Analyze image for autism indicators
-  - Supports optional weighted ensemble if `behavioral_data` is sent and tabular model is available
+  - Supports optional `behavioral_data` (JSON) for weighted ensemble
 
 ### Child Management
 
@@ -327,7 +342,7 @@ The interactive chatbot provides guidance on:
 
    - Visit homepage
    - Navigate to "Analyze"
-   - Upload a photo
+   - Upload a photo + optional behavioral inputs
    - View analysis results
 
 2. **User Registration**:
@@ -398,6 +413,7 @@ For support, questions, or feedback:
 
 ---
 
-**Last Updated**: November 2024
+**Last Updated**: April 16, 2026
 
-**Version**: 1.0.0
+**Version**: 1.1.0
+```
